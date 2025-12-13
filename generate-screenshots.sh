@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-rebble build
+pebble build
 
 if [[ ! -d screenshots ]]; then
   mkdir screenshots
 fi
 
 function scr() {
-  rebble install --emulator "$1"
+  pebble install --emulator "$1"
   sleep 1
-  rebble screenshot ./screenshots/"$1".png
-  rebble kill
+  pebble screenshot ./screenshots/"$1".png
+  pebble kill
 }
 
 scr aplite
