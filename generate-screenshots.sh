@@ -17,3 +17,5 @@ scr aplite
 scr basalt
 scr chalk
 scr diorite
+scr emery
+scr flint
