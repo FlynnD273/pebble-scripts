@@ -15,7 +15,7 @@ tee compile_commands.json <<EOF
 		"directory": "$PWD",
 		"arguments": [
 			"gcc",
-			${armIncludes:+"-I$armIncludes",}
+			"-I$armIncludes",
 			"-I$platformIncludes",
 			"-Ibuild/include/",
 			"-Iinclude/",

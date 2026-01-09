@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+echo "Init .gitignore:"
 tee .gitignore << EOF
 node_modules
 build
+.lock*
 EOF
-../create_compile_commands.sh $1
+echo
+
+echo "Init compile commands:"
+../create_compile_commands.sh "$1"
