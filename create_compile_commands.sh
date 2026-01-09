@@ -4,8 +4,6 @@ platform=basalt
 if [ "$1" != "" ]; then
 	platform="$1"
 fi
-version="$(pebble sdk list | grep 'active' | sed -E 's/ \(active\)//')"
-armIncludes="$(realpath "$(pebble sdk include-path "$platform")/../../../../toolchain/arm-none-eabi/arm-none-eabi/include/" | sed -E "s/$version/current/")"
 includePath="$(pebble sdk include-path "$platform")"
 includePath=${includePath%/SDKs*}
 platformIncludes="$includePath/SDKs/current/sdk-core/pebble/$platform/include"
