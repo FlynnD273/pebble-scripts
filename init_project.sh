@@ -2,6 +2,7 @@
 
 echo "Init .gitignore:"
 tee .gitignore << EOF
+compile_commands.json
 node_modules
 build
 .lock*
