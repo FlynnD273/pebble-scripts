@@ -19,7 +19,7 @@ tee compile_commands.json <<EOF
 			"-I$platformIncludes",
 			"-Ibuild/include/",
 			"-Iinclude/",
-			"-Ibuild/basalt/"
+			"-Ibuild/$platform/"
 		],
 		"file": "*.*"
 	}
