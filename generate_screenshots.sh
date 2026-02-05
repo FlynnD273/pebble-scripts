@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+pebble kill
+pebble wipe
 pebble build
 
 if [[ ! -d screenshots ]]; then
