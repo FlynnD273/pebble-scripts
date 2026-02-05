@@ -6,6 +6,7 @@ compile_commands.json
 node_modules
 build
 .lock*
+*.blend[0-9]
 EOF
 echo
 
