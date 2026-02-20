@@ -15,9 +15,13 @@ function scr() {
   pebble kill
 }
 
-scr aplite
-scr basalt
-scr chalk
-scr diorite
-scr emery
-scr flint
+if [ ! "$1" ]; then
+	scr aplite
+	scr basalt
+	scr chalk
+	scr diorite
+	scr emery
+	scr flint
+else
+	scr "$1"
+fi
