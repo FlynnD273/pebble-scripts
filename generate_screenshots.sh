@@ -1,5 +1,25 @@
 #!/usr/bin/env bash
 
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -d|--delay)
+      DELAY="$2"
+      shift
+      shift
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+DELAY=${DELAY:-1}
+
+set -- "${POSITIONAL_ARGS[@]}"
+
 pebble kill
 pebble wipe
 pebble build
@@ -10,18 +30,15 @@ fi
 
 function scr() {
   pebble install --emulator "$1"
-  sleep 1
+  sleep "$DELAY"
   pebble screenshot ./screenshots/"$1".png
   pebble kill
 }
 
 if [ ! "$1" ]; then
-	scr aplite
-	scr basalt
-	scr chalk
-	scr diorite
-	scr emery
-	scr flint
+	for platform in $(jq -r '.pebble.targetPlatforms | @sh' package.json); do
+		scr "${platform//\'/}"
+	done
 else
 	scr "$1"
 fi
