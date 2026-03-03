@@ -40,5 +40,8 @@ if [ ! "$1" ]; then
 		scr "${platform//\'/}"
 	done
 else
-	scr "$1"
+	while [[ $# -gt 0 ]]; do
+		scr "$1"
+		shift
+	done
 fi
